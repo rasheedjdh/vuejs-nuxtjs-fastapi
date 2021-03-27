@@ -5,7 +5,13 @@ You have two choices:
 
 1. Run it with docker. Therefore, you have to install docker. To run the app, navigate to the root directory which contains the file "docker-compose.yml". Then, run the following command "docker-compose up --build".
 
-2. Run it with Makefile. Therefore, you need to install Node & Python 3 and you need to make sure that your enviroment support "Makefile". Then, run this command "`make -j2`". If this couldn't work, I would suggest you to navigate to each folders (backend and frontend) and read their Readmes. 
+2. Run it with Makefile. Therefore, you need to install Node & Python 3 and you need to make sure that your enviroment support "Makefile". Then, run this command "`make -j2`". If this couldn't work, I would suggest you to navigate to each folders (backend and frontend) and read their Readmes. Moreover, this requires as well the following:
+    - Navigate to the file index.vue, replace this line 'http://fast-api:8000/get_lists' with this 'http://localhost:8000/get_lists'
+    - Navigate to the file __main__ in api folder, and add those lines after last import 
+        HOST = os.environ.get('HOST', 'localhost')
+        PORT = int(os.environ.get('PORT', 8000))
+      and replace 'run()' with run(HOST, PORT)
+
 ```
 
 ## High Level Description
