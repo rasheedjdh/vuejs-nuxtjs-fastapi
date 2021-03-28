@@ -1,6 +1,5 @@
 ## Preq & How to run the web app?
 
-```
 You have two choices:
 
 1. Run it with docker. Therefore, you have to install docker. To run the app, navigate to the root directory which contains the file "docker-compose.yml". Then, run the following command "docker-compose up --build".
@@ -12,11 +11,10 @@ You have two choices:
         PORT = int(os.environ.get('PORT', 8000))
       and replace 'run()' with run(HOST, PORT)
 
-```
 
 ## High Level Description
 
-```
+
 A checking tool for internal JSONs that store data. These JSONs are checked, everytime our checking system finds an error, it generates a JSON error object like:
 
 
@@ -27,13 +25,13 @@ A checking tool for internal JSONs that store data. These JSONs are checked, eve
 }
 
 An API that will get all errors generated so far, seperated by their status. A human operator has to be able to see and understand these errors in order to fix them in the original data. As a result, it will educe errors to almost zero by providing a flawless UI/UX for operators to check errors and resolve them.
-```
+
 
 ## The Features
 
 -  The available error categories: resolved, unresolved, backlog.
 
-```
+
 _frontend_
 
 -   [x] A "nice" overview of all errors, it should show `unresolved`, then `resolved` and then `backlog` errors
@@ -43,9 +41,9 @@ _frontend_
 -   [x] Move an individual backlog error to `unresolved` locally
 -   [X] Shadows,
 -   [X] Click, hover animations (e.g. changing to a darker shade of said color)
-```
 
-```
+
+
 _backend_
 
 -   [x] Retrieve error list (resolved, unresolved and backlog lists) api. Trace how many request received this api for a specific operator and logs how many request in total for this api. 
@@ -54,9 +52,8 @@ _backend_
 -   [x] Retrieve & logs how many requests for errors are received.
 -   [x] Retrieve & logs how many requests for errors are received from a specific operator
 -   [x] the operator can send all errors that are currently marked as `resolved` to the `api`, the `api` prints out how many times a certain `error.code` was resolved
-```
 
 ## Screenshots
 
-Some screenshots to give you a scence of the UI.
+Some screenshots to give you a scence of the UI in root folder.
 
