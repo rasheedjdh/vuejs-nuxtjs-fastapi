@@ -11,7 +11,7 @@ app = FastAPI()
 inMemomryCache = InMemomryCache()
 
 
-@app.get("/get_lists")
+@app.get("/tasks")
 def get_lists(operator_name: Optional[str] = None) -> Dict[str, Any]:
     """
     record how many request for this api receievd for a specific operator
@@ -23,27 +23,27 @@ def get_lists(operator_name: Optional[str] = None) -> Dict[str, Any]:
     return generate_lists()
 
 
-@app.get("/get_list_intersection_counts")
+@app.get("/tasks_intersection_counts")
 def get_list_intersection_counts() -> Dict[str, int]:
     """Return intersection count between resolved, unresolved and backlog lists."""
     return get_issues_intersection_counts(generate_lists())
 
 
-@app.get("/get_error_request_count")
+@app.get("/error_count")
 def get_error_request_count() -> int:
     """Return & logs how many requests for errors are received"""
     LOGGER.info(inMemomryCache.get_error_request_count())
     return inMemomryCache.get_error_request_count()
 
 
-@app.get("/get_operator_request_count")
+@app.get("/operator_request_count")
 def get_operator_request_count(operator_name: Optional[str] = None) -> int:
     """Return & logs how many requests for errors are received from a specific operator"""
     LOGGER.info(inMemomryCache.get_operator_request_count(operator_name))
     return inMemomryCache.get_operator_request_count(operator_name)
 
 
-@app.post("/get_aggregated_resolved_issues")
+@app.post("/aggregated_resolved_issues")
 def get_aggregated_resolved_issues(resolved_issues: dict):
     """
     The operator can send all errors that are currently marked as resolved to this api,
